@@ -28,27 +28,27 @@ class Person:
 
 
 def filter_by_age(
-    list_of_person: list[Person], lower_bound: int, upper_bound: int
+    list_of_people: list[Person], lower_bound: int, upper_bound: int
 ) -> list[Person]:
     """A function that filters by age given a lower-bound and an upper-bound."""
 
     filtered_list = [
-        person for person in list_of_person if lower_bound < person.age <= upper_bound
+        person for person in list_of_people if lower_bound <= person.age <= upper_bound
     ]
     return filtered_list
 
 
-def filter_by_name(list_of_person: list[Person], starting_string: str) -> list[Person]:
+def filter_by_name(list_of_people: list[Person], starting_string: str) -> list[Person]:
     """A function that filters by name given a starting string preserving the letter case."""
 
     filtered_list = [
-        person for person in list_of_person if person.name.startswith(starting_string)
+        person for person in list_of_people if person.name.startswith(starting_string)
     ]
     return filtered_list
 
 
-def filter_by_name(list_of_person: list[Person], location: str) -> list[Person]:
+def filter_by_location(list_of_people: list[Person], location: str) -> list[Person]:
     """A function that filters by location given a name of a location, preserving the letter case."""
 
-    filtered_list = [person for person in list_of_person if person.location == location]
+    filtered_list = [person for person in list_of_people if person.location == location]
     return filtered_list
