@@ -1,4 +1,5 @@
 from unittest import TestCase
+import unittest
 from script import Person, filter_by_age, filter_by_name, filter_by_location
 
 
@@ -37,7 +38,7 @@ class FilterByAgeFunctionTestCase(PersonModuleTestCase):
         """Run this setUp before each test."""
         return super().setUp()
 
-    def filter_by_age_correctly_filters_list_based_on_lower_bound(self) -> None:
+    def test_filter_by_age_correctly_filters_list_based_on_lower_bound(self) -> None:
         """Filter by age correctly filters by age on lower bound."""
 
         output_list = filter_by_age(
@@ -66,3 +67,7 @@ class FilterByAgeFunctionTestCase(PersonModuleTestCase):
         ]
 
         self.assertTrue(all_person_have_greater_or_equal_to_lower_bound_age)
+
+
+if __name__ == "__main__":
+    unittest.main()
