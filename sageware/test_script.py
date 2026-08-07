@@ -27,6 +27,44 @@ class PersonModuleTestCase(TestCase):
         return super().setUp()
 
 
+class PersonTestCase(PersonModuleTestCase):
+    """Person class test case."""
+
+    def setUp(self) -> None:
+        """Run this setUp before each test."""
+        super().setUp()
+        self.name = "Edchel Stephen"
+        self.age = 35
+        self.location = "CDO"
+        self.person_1 = Person(name=self.name, age=self.age, location=self.location)
+
+    def test__str__returns_expected_string(self) -> None:
+        """test __str__ method returns expected string."""
+        actual = str(self.person_1)
+        expected = self.name
+
+        self.assertEqual(actual, expected)
+
+    def test__repr__returns_expected_string(self) -> None:
+        """test __repr__ method returns expected string."""
+        actual = repr(self.person_1)
+        expected = f"Person(name={self.name}, age={self.age}, location={self.location})"
+
+        self.assertEqual(actual, expected)
+
+    def test_person_with_negative_age_raises_ValueError(self) -> None:
+        """Person with negative age raises Value Error."""
+
+        with self.assertRaises(ValueError):
+            Person(name="Benjamin", age=-1, location="USA")
+
+    def test_person_with_over_possible_age_raises_ValueError(self) -> None:
+        """Person with over possible age raises Value Error."""
+
+        with self.assertRaises(ValueError):
+            Person(name="Benjamin", age=121, location="USA")
+
+
 class FilterByAgeFunctionTestCase(PersonModuleTestCase):
     """Testcase for filter_by_age() function."""
 

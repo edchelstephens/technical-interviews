@@ -30,7 +30,7 @@ class Person:
 
     def __str__(self) -> str:
         """String representation of the object."""
-        return f"Person(name={self.name}, age={self.age}, location={self.location})"
+        return self.name
 
     def __repr__(self) -> str:
         """String representation of the object."""
@@ -62,5 +62,3 @@ def filter_by_location(list_of_people: list[Person], location: str) -> list[Pers
 
     filtered_list = [person for person in list_of_people if person.location == location]
     return filtered_list
-
-
