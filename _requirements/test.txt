@@ -1,0 +1,9 @@
+# Test environment requirements
+
+-r ./base.txt
+
+coverage==7.15.2 # https://pypi.org/project/coverage/
+pytest==9.1.1 # https://pypi.org/project/pytest/
+pytest-sugar==1.1.1 # https://pypi.org/project/pytest-sugar/
+
+factory-boy==3.3.3  # https://pypi.org/project/factory-boy/

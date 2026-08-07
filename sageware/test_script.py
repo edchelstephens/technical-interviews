@@ -67,7 +67,3 @@ class FilterByAgeFunctionTestCase(PersonModuleTestCase):
         ]
 
         self.assertTrue(all_person_have_greater_or_equal_to_lower_bound_age)
-
-
-if __name__ == "__main__":
-    unittest.main()
