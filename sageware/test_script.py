@@ -75,8 +75,8 @@ class FilterByNameFunctionTestCase(PersonModuleTestCase):
         super().setUp()
         self.starting_string = "Ed"
 
-    def test_filter_by_age_correctly_filters_by_starting_string(self) -> None:
-        """Filter by age correctly filters by starting string."""
+    def test_filter_by_name_correctly_filters_by_starting_string(self) -> None:
+        """Filter by name correctly filters by starting string."""
 
         output_list = filter_by_name(
             list_of_people=self.list_of_people, starting_string=self.starting_string
@@ -87,3 +87,25 @@ class FilterByNameFunctionTestCase(PersonModuleTestCase):
         ]
 
         self.assertTrue(all_person_have_starting_string)
+
+
+class FilterByLocationFunctionTestCase(PersonModuleTestCase):
+    """Testcase for filter_by_location() function."""
+
+    def setUp(self) -> None:
+        """Run this setUp before each test."""
+        super().setUp()
+        self.search_location = "CDO"
+
+    def test_filter_by_location_correctly_filters_by_location(self) -> None:
+        """Filter by location correctly filters by location."""
+
+        output_list = filter_by_location(
+            list_of_people=self.list_of_people, location=self.search_location
+        )
+
+        all_person_have_location = [
+            person.location == self.search_location for person in output_list
+        ]
+
+        self.assertTrue(all_person_have_location)
