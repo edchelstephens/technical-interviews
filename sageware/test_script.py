@@ -1,6 +1,5 @@
 from unittest import TestCase
-import unittest
-from script import Person, filter_by_age, filter_by_name, filter_by_location
+from sageware.script import Person, filter_by_age, filter_by_name, filter_by_location
 
 
 class PersonModuleTestCase(TestCase):
