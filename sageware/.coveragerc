@@ -13,8 +13,8 @@ branch = True
 
 
 omit =
-    *__init__*
-    *test_script*
+    *__init__.py
+    *test_script.py
 
 
 

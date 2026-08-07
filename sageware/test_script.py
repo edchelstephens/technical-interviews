@@ -15,9 +15,6 @@ class PersonModuleTestCase(TestCase):
         person_6 = Person(name="Edchelyn Stephanie", age=38, location="Aloran")
         person_7 = Person(name="Cheddie Jay", age=29, location="Cebu")
 
-        self.age_lower_bound = 28
-        self.age_upper_bound = 35
-
         self.list_of_people = [
             person_1,
             person_2,
@@ -35,7 +32,9 @@ class FilterByAgeFunctionTestCase(PersonModuleTestCase):
 
     def setUp(self) -> None:
         """Run this setUp before each test."""
-        return super().setUp()
+        super().setUp()
+        self.age_lower_bound = 28
+        self.age_upper_bound = 35
 
     def test_filter_by_age_correctly_filters_list_based_on_lower_bound(self) -> None:
         """Filter by age correctly filters by age on lower bound."""
@@ -66,3 +65,25 @@ class FilterByAgeFunctionTestCase(PersonModuleTestCase):
         ]
 
         self.assertTrue(all_person_have_greater_or_equal_to_lower_bound_age)
+
+
+class FilterByNameFunctionTestCase(PersonModuleTestCase):
+    """Testcase for filter_by_name() function."""
+
+    def setUp(self) -> None:
+        """Run this setUp before each test."""
+        super().setUp()
+        self.starting_string = "Ed"
+
+    def test_filter_by_age_correctly_filters_by_starting_string(self) -> None:
+        """Filter by age correctly filters by starting string."""
+
+        output_list = filter_by_name(
+            list_of_people=self.list_of_people, starting_string=self.starting_string
+        )
+
+        all_person_have_starting_string = [
+            person.name.startswith(self.starting_string) for person in output_list
+        ]
+
+        self.assertTrue(all_person_have_starting_string)
