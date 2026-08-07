@@ -1,4 +1,5 @@
-from sageware.script import Person
+from sageware.script import Person, filter_by_age, filter_by_name, filter_by_location
+
 
 print()
 print(" ****************** Sample Run ****************** ")
