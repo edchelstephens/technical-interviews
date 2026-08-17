@@ -1,0 +1,1 @@
+tablib==3.10.0 # https://pypi.org/project/tablib/
