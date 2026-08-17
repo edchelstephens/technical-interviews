@@ -220,3 +220,5 @@ __marimo__/
 
 # Apple
 .DS_Store
+
+.vscode/*
