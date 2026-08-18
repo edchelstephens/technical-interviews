@@ -44,3 +44,6 @@ for name, count in attendance_dict.items():
     sheet.append([name, count])
 
 output_workbook.save("Aces_Attendance_count.xlsx")
+
+with open("attendance_dict.py", "w") as attendance_json:
+    attendance_json.write(str(attendance_dict))
