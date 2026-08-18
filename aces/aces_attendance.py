@@ -10,21 +10,16 @@ data = []
 for index, row in enumerate(sheet.iter_rows(values_only=True)):
     if index == 0:
         continue
-    data.append(list(row))
+
+    player_name_list = [name.lower() for name in row if name is not None]
+    data.extend(player_name_list)
 
 
-cleaned_data = []
-
-for data_list in data:
-    player_name_list = [name for name in data_list if name is not None]
-    cleaned_data.extend(player_name_list)
-
-processed_data = [name.lower() for name in cleaned_data]
-processed_data.sort()
+data.sort()
 
 attendance_dict = dict()
 
-for name in processed_data:
+for name in data:
     if name in attendance_dict:
         attendance_dict[name] += 1
     else:
@@ -45,5 +40,3 @@ for name, count in attendance_dict.items():
 
 output_workbook.save("Aces_Attendance_count.xlsx")
 
-with open("attendance_dict.py", "w") as attendance_json:
-    attendance_json.write(str(attendance_dict))
