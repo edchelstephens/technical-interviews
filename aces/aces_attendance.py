@@ -1,7 +1,6 @@
 from pprint import pprint
-from collections import OrderedDict
 
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 
 workbook = load_workbook("Aces_Attendance.xlsx")
 sheet = workbook.active
@@ -23,7 +22,7 @@ for data_list in data:
 processed_data = [name.lower() for name in cleaned_data]
 processed_data.sort()
 
-attendance_dict = OrderedDict()
+attendance_dict = dict()
 
 for name in processed_data:
     if name in attendance_dict:
@@ -31,5 +30,17 @@ for name in processed_data:
     else:
         attendance_dict[name] = 1
 
-
+print(" ===== Attendance Dict ====== ")
 pprint(attendance_dict)
+
+
+output_workbook = Workbook()
+sheet = output_workbook.active
+
+sheet.title = "Aces_Attendance_Count"
+sheet.append(["Name", "Attendance"])
+
+for name, count in attendance_dict.items():
+    sheet.append([name, count])
+
+output_workbook.save("Aces_Attendance_count.xlsx")
